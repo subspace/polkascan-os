@@ -28,6 +28,12 @@ git submodule update --init --recursive
 
 ### Step 4: Then build docker containers
 
+Set the HARVESTER_API_IP variable
+
+```bash
+export HARVESTER_API_IP=127.0.0.1
+```
+
 Start mysql
 
 ```bash
@@ -80,7 +86,7 @@ Note that this IP its the reference from the docker container to you host.
 
 ```bash
 export LOCAL_SPARTAN_NODE=$(ip addr show | grep "\binet\b.*\bdocker0\b" | awk '{print $2}' | cut -d '/' -f 1)
-# out: LOCAL_SPARTAN_NODE=127.0.0.1
+export HARVESTER_API_IP=127.0.0.1
 ```
 
 For the [node-template-spartan](https://github.com/subspace/substrate/tree/poc/bin/node-template-spartan) **poc branch**

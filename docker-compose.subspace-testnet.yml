@@ -92,6 +92,8 @@ services:
   mysql:
     image: mysql:8.0.23
     hostname: mysql
+    security_opt:
+      - seccomp:unconfined
     volumes:
       - 'db-data:/var/lib/mysql'
     ports:
@@ -113,6 +115,8 @@ services:
 
   explorer-gui:
     image: polkascan/pre-explorer-gui:latest
+    environment:
+      - HARVESTER_API_IP=${HARVESTER_API_IP}
     build:
       context: explorer-gui/.
       args:
@@ -123,7 +127,7 @@ services:
         NETWORK_TOKEN_SYMBOL: DEV
         NETWORK_TOKEN_DECIMALS: 12
         NETWORK_COLOR_CODE: f19135
-        API_URL: http://127.0.0.1:8080/api/v1
+        API_URL: http://${HARVESTER_API_IP}:8080/api/v1
     ports:
       - '8080:80'
     depends_on:
