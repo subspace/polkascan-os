@@ -1,9 +1,11 @@
 [submodule "harvester"]
 	path = harvester
-	url = https://github.com/polkascan/polkascan-pre-harvester.git
+	url = https://github.com/subspace/polkascan-pre-harvester.git
+	branch = subspace-testnet
 [submodule "explorer-api"]
 	path = explorer-api
-	url = https://github.com/polkascan/polkascan-pre-explorer-api.git
+	url = https://github.com/subspace/polkascan-pre-explorer-api.git
+	branch = subspace-testnet
 [submodule "explorer-gui"]
 	path = explorer-gui
 	url = https://github.com/polkascan/polkascan-pre-explorer-gui.git
